@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { 
+            background-color: #f5f5f5;
+            min-height: 100vh;
+        }
+        .auth-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .section { display: none; }
+        #loginSection { display: block; }
+        .user-table {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Section -->
+    <div id="loginSection" class="section">
+        <div class="auth-container">
+            <h2 class="text-center mb-4">Login</h2>
+            <form id="loginForm">
+                <div class="mb-3">
+                    <label for="loginEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="loginEmail" required>
+                </div>
+                <div class="mb-3">
+                    <label for="loginPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="loginPassword" required>
+                </div>
+                <div id="loginMessage"></div>
+                <button type="submit" class="btn btn-primary w-100 mt-3">Login</button>
+                <hr class="my-4">
+                <p class="text-center mb-0">
+                    Don't have an account? 
+                    <a href="#" id="showRegisterBtn" class="text-decoration-none">Register</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Section -->
+    <div id="registerSection" class="section">
+        <div class="auth-container">
+            <h2 class="text-center mb-4">Register</h2>
+            <form id="registerForm">
+                <div class="mb-3">
+                    <label for="registerName" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="registerName" required>
+                </div>
+                <div class="mb-3">
+                    <label for="registerEmail" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="registerEmail" required>
+                </div>
+                <div class="mb-3">
+                    <label for="registerPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="registerPassword" required>
+                </div>
+                <div id="registerMessage"></div>
+                <button type="submit" class="btn btn-primary w-100 mt-3">Register</button>
+                <hr class="my-4">
+                <p class="text-center mb-0">
+                    Already have an account? 
+                    <a href="#" id="showLoginBtn" class="text-decoration-none">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- User Table Section -->
+    <div id="userTableSection" class="section container mt-5">
+        <div class="user-table">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="m-0">User Management</h2>
+                <button id="logoutBtn" class="btn btn-danger">
+                    <i class="fas fa-sign-out-alt me-2"></i>Logout
+                </button>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Search users...">
+                        <button class="btn btn-outline-primary" type="button" id="searchBtn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover" id="usersTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-4">
+                <button class="btn btn-outline-primary" id="prevPageBtn">
+                    <i class="fas fa-chevron-left me-2"></i>Previous
+                </button>
+                <span id="currentPage">Page 1</span>
+                <button class="btn btn-outline-primary" id="nextPageBtn">
+                    Next<i class="fas fa-chevron-right ms-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Store page state in localStorage
+        if (!localStorage.getItem('currentPage')) {
+            localStorage.setItem('currentPage', 'login');
+        }
+
+        // Navigation functions
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(sectionId).style.display = 'block';
+            localStorage.setItem('currentPage', sectionId);
+        }
+
+        // Event listeners for navigation
+        document.getElementById('showLoginBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            showSection('loginSection');
+        });
+
+        document.getElementById('showRegisterBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            showSection('registerSection');
+        });
+
+        // Show initial section based on localStorage
+        showSection(localStorage.getItem('currentPage'));
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/src/authManager.js"></script>
+</body>
+</html>

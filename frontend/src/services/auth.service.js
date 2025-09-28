@@ -1,6 +1,6 @@
 // API Configuration
 const API_CONFIG = {
-    BASE_URL: 'http://localhost:3000/api',
+    BASE_URL: 'https://contribution-to-adhi-s-life-backend-r348bm04u.vercel.app/api',
     ENDPOINTS: {
         LOGIN: '/auth/login',
         REGISTER: '/auth/register',

@@ -18,7 +18,7 @@ const usersTable = document.getElementById('usersTable').getElementsByTagName('t
 const logoutBtn = document.getElementById('logoutBtn');
 
 // API URL
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'https://contribution-to-adhi-s-life-1.onrender.com/api';
 
 // Event Listeners
 registerForm.addEventListener('submit', handleRegister);

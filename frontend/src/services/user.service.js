@@ -1,6 +1,6 @@
 import { authService } from './auth.service.js';
 
-const BASE_URL = 'https://contribution-to-adhi-s-life-backend-r348bm04u.vercel.app/api';
+const BASE_URL = 'https://contribution-to-adhi-s-life-1.onrender.com/api';
 
 export const userService = {
     async getUsers(page = 1, limit = 10, search = '') {

@@ -24,7 +24,7 @@ const userName = document.getElementById('userName');
 const authSection = document.getElementById('authSection');
 
 // API URL configuration
-const API_URL = 'https://contribution-to-adhi-s-life-backend-r348bm04u.vercel.app';
+const API_URL = 'https://contribution-to-adhi-s-life-1.onrender.com';
 
 // Event Listeners
 loginForm.addEventListener('submit', handleLogin);

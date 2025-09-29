@@ -1,5 +1,5 @@
 // API Configuration
-const API_URL = 'https://contribution-to-adhi-s-life-backend-r348bm04u.vercel.app/api';
+const API_URL = 'https://contribution-to-adhi-s-life-1.onrender.com/api';
 
 // DOM Elements
 const elements = {

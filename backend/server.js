@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 3000;
 
 // CORS configuration
 const corsOptions = {
-    origin: 'http://localhost:5173' || 'https://contribution-to-adhi-s-life-1.onrender.com', // Vite default port
+    origin: ['http://localhost:5173', 'https://contribution-to-adhi-s-life-1.onrender.com', 'https://contribution-to-adhi-s-life.vercel.app/'], // Vite default port
 
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],

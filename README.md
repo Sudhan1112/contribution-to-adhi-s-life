@@ -169,7 +169,7 @@ curl http://localhost:8888/api/users/secret-stats
 1. Don't just comment out bugs - fix them properly
 2. Ensure your authentication middleware works with all protected routes
 3. Remember to hash passwords when updating user profiles
-4. Test edge cases (empty inputs, invalid tokens, etc.)
+4. Test edge cases (empty inputs, invalid tokens, etc.
 5. Make sure the secret endpoint puzzles still work after your fixes
 
 ## 📞 Support
